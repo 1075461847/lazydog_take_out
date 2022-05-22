@@ -47,13 +47,13 @@ public class EmployeeController {
         if (emp == null) {
             return R.error("用户名或密码不正确，请检查后重试！");
         }
-        if(!emp.getPassword().equals(password)){
+        if (!emp.getPassword().equals(password)) {
             return R.error("用户名或密码不正确，请检查后重试！");
         }
-        if(emp.getStatus()==0){
+        if (emp.getStatus() == 0) {
             return R.error("账号异常，请联系管理员！");
         }
-        request.getSession().setAttribute("employee",emp.getId());
+        request.getSession().setAttribute("employee", emp.getId());
         return R.success(emp);
     }
 
@@ -61,7 +61,7 @@ public class EmployeeController {
      * 员工注销登录
      */
     @PostMapping("/logout")
-    public R<String> logout(HttpServletRequest request){
+    public R<String> logout(HttpServletRequest request) {
         request.getSession().removeAttribute("employee");
         return R.success("注销成功");
     }
