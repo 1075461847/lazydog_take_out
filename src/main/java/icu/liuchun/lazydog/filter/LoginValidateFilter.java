@@ -45,8 +45,8 @@ public class LoginValidateFilter implements Filter {
 
     public boolean validate(String[] urls, String requestURI) {
         for (String url : urls) {
-            boolean match = PATH_MATCHER.match(url,requestURI);
-            if(match){
+            boolean match = PATH_MATCHER.match(url, requestURI);
+            if (match) {
                 return true;
             }
         }
